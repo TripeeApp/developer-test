@@ -6,8 +6,15 @@ function Layout({children}) {
     return (
         <>
             <nav className={styles.navbar}>
-                 <Link href='/'>Logo</Link> 
-                 <Link href='/login'>Login</Link> 
+                <Link href='/'>Tripee</Link> 
+                <Link href='/login'>
+                    <a>
+                        <img
+                            src='/images/user-icon.png'
+                            alt='user img'
+                        />
+                    </a>
+                </Link> 
             </nav>
             <main className={styles.layout}>
                 {children}

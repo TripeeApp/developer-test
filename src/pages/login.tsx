@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
+import axios from '../services/gitApi';
 import styles from '../../public/css/login.module.css';
 
-
 function Login() {
-    const [email, setEmail] = useState('');
-    const [pwd, setPwd] = useState('');
+    const [token, setToken] = useState('');
 
     const handleLogin = e => {
-        e.preventDefault();
-        console.log('ok')
+        axios.get('/user', { 
+            headers: { 
+                Authorization: `token ${token}` 
+            } 
+        }).then(res => {
+            if(res.status === 200) {
+                localStorage.setItem('//gitTokenTripee//', token);
+                window.location.href = '/';
+            }
+        });
     }
 
     return (
@@ -17,17 +24,11 @@ function Login() {
                 <legend>Login</legend>
                 <form>
                     <input 
-                        type='email' 
-                        placeholder='Email' 
-                        value={email} 
-                        onChange={e => setEmail(e.target.value)} 
-                    />
-                    
-                    <input 
-                        type='password' 
-                        placeholder='Senha' 
-                        value={pwd} 
-                        onChange={e => setPwd(e.target.value)} 
+                        type='text'
+                        placeholder='Github Token' 
+                        value={token} 
+                        onChange={e => setToken(e.target.value)} 
+                        required
                     />
 
                     <input 
