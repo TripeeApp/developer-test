@@ -1,0 +1,52 @@
+.main .opts {
+    padding: 10px 20px;
+}
+
+.main .opts span {
+    cursor: pointer;
+    color: rgb(137, 136, 207);
+}
+
+.main .opts span:last-of-type {
+    margin-left: 30px;
+}
+
+.main .content {
+    width: 70vw;
+}
+
+.main .content ul {
+    padding: 20px 10px;
+    list-style: none;
+}
+
+.main .content ul li {
+    border-bottom: 1px solid rgb(137, 136, 207);
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.main .content ul li img {
+    height: 50px;
+    border-radius: 100px;
+}
+
+.main .content .pageController {
+    margin: auto;
+    width: fit-content;
+}
+
+.main .content .pageController span:first-of-type {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.main .content .pageController span:last-of-type {
+    margin-left: 5px;
+    cursor: pointer
+}
+
+.main .content .pageController span {
+    color: rgb(137, 136, 207);
+    font-size: 14px;
+}
