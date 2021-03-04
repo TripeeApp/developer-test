@@ -12,21 +12,35 @@ function Home() {
         axios.defaults.headers.common['Authorization'] = `token ${localStorage.getItem('//gitTokenTripee//')}`;
     }
 
-    const searchRepos = (nextPage = 0) => {
-        axios.get(`/user/repos?page=${rPage+nextPage}&per_page=5`).then(res => {
+    const switchDivs = (toClose, toOpen) => {
+        const divToClose = document.getElementById(toClose);
+        const divToOpen = document.getElementById(toOpen);
+        
+        divToClose.style.maxHeight = '0vh';
+        divToOpen.style.maxHeight = '70vh'
+    }
+
+    const searchRepos = async (nextPage = 0) => {
+        await axios.get(`/user/repos?page=${rPage+nextPage}&per_page=5`).then(res => {
+            if(res.data.length < 1) {
+                return
+            }
             setRepos(res.data);
+            setRPage(rPage+nextPage);
         })
     }
 
-    const searchFollowing = (nextPage = 0) => {
-        axios.get(`/user/following?page=${fPage+nextPage}&per_page=5`).then(res => {
+    const searchFollowing = async (nextPage = 0) => {
+        await axios.get(`/user/following?page=${fPage+nextPage}&per_page=5`).then(res => {
+            if(res.data.length < 1) {
+                return
+            }
             setFollowing(res.data);
+            setFPage(fPage+nextPage)
         });
-
     }
 
     useEffect(() => {
-        console.log(axios.defaults.headers)
         searchRepos()
         searchFollowing();
     }, []);
@@ -34,40 +48,61 @@ function Home() {
     return (
         <section className={styles.main}>
             <div className={styles.opts}>
-                <span>Following</span>
-                <span>Repositories</span>
+                <span onClick={e => switchDivs('repositories', 'following')}>Following</span>
+                <span onClick={e => switchDivs('following', 'repositories')}>Repositories</span>
             </div>
 
             <div className={styles.content}>
-                <ul>
-                    {
-                        following.map(item => {
-                            return (
-                                <>
-                                <li>
-                                    <img src={item.avatar_url} />
-                                </li>
-                                <li>
-                                    <img src={item.avatar_url} />
-                                </li>
-                                <li>
-                                    <img src={item.avatar_url} />
-                                </li>
-                                <li>
-                                    <img src={item.avatar_url} />
-                                </li>
-                                <li>
-                                    <img src={item.avatar_url} />
-                                </li>
-                                </>
-                            )
-                        })
-                    }
-                </ul>
-                <div className={styles.pageController}>
-                    <span> &#9664; </span>
-                    <span> {fPage} </span>
-                    <span> &#9654; </span>
+                <div className={styles.following} id='following'>
+                    <ul>
+                        {
+                            following.map(item => {
+                                return (
+                                    <li key={Math.random()}>
+                                        <img src={item.avatar_url} />
+                                        <span>{item.login}</span>
+                                        <span> <a href={item.html_url} target='_blank'> View in github </a> </span>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                    <div className={styles.pageController}>
+                        <span onClick={e => {
+                            if(fPage <= 1) {
+                                return
+                            }
+                            searchFollowing(-1)
+                        }}> &#9664; </span>
+                        <span> {fPage} </span>
+                        <span onClick={e => searchFollowing(1)}> &#9654; </span>
+                    </div>
+                </div>
+
+                <div className={styles.repositories} id='repositories'>
+                    <ul>
+                        {
+                            repos.map(item => {
+                                return (
+                                    <li key={Math.random()}>
+                                        <span>{item.name}</span>
+                                        <span> <a href={item.html_url} target='_blank'> View in github </a> </span>
+                                        {item.homepage ? <span> <a href={item.homepage} target='_blank'>Homepage</a> </span> : null}
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                    <div className={styles.pageController}>
+                        <span onClick={e => {
+                            if(fPage <= 1) {
+                                return
+                            }
+                            searchFollowing(-1)
+                        }}> &#9664; </span>
+                        <span> {fPage} </span>
+                        <span onClick={e => searchFollowing(1)}> &#9654; </span>
+                    </div>
                 </div>
 
             </div>
