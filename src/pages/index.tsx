@@ -9,7 +9,7 @@ function Login() {
         if(localStorage.getItem('//gitTokenTripee//')) {
             window.location.href = '/home'
         }
-    })
+    }, [])
 
     const handleLogin = async (e: any) => {
         e.preventDefault()
@@ -19,6 +19,7 @@ function Login() {
                     Authorization: `token ${token}` 
                 } 
             }).then(res => {
+                localStorage.setItem('gitAvatar', res.data.avatar_url);
                 localStorage.setItem('//gitTokenTripee//', token);
                 window.location.href = '/home';
             });

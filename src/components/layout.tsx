@@ -7,10 +7,15 @@ function Layout({children}) {
 
     useEffect(() => {
         setAvatar(localStorage.getItem('gitAvatar'));
-    })
+    }, [])
+
+    process.browser && localStorage.gitAvatar !== undefined ? window.onload = () => {
+        setAvatar(localStorage.getItem('gitAvatar'));
+    } : false
 
     const logOut = () => {
         localStorage.clear();
+        setAvatar('');
         window.location.href = '/'
     }
 
@@ -18,15 +23,22 @@ function Layout({children}) {
         <>
             <nav className={styles.navbar}>
                 <a>Tripee</a>
-                <a>
-                    <img
-                        src={avatar}
-                    />
-                    <div className={styles.userOpts}>
-                        <Link href='/profile'><span>Profile</span></Link>
-                        <span onClick={logOut}>Log out</span>
-                    </div>
-                </a>
+                {
+                    avatar !== null
+                    ?
+                        <a>
+                            <img
+                                src={avatar}
+                            />
+                            <div className={styles.userOpts}>
+                                <Link href='/profile'><span>Profile</span></Link>
+                                <span onClick={logOut}>Log out</span>
+                            </div>
+                        </a>
+                    :
+                        <a></a>
+                }
+                
             </nav>
             <main className={styles.layout}>
                 {children}
