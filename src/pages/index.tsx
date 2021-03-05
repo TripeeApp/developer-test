@@ -11,17 +11,20 @@ function Login() {
         }
     })
 
-    const handleLogin = e => {
-        axios.get('/user', { 
-            headers: { 
-                Authorization: `token ${token}` 
-            } 
-        }).then(res => {
-            if(res.status === 200) {
+    const handleLogin = async (e: any) => {
+        e.preventDefault()
+        try {
+            await axios.get('/user', { 
+                headers: { 
+                    Authorization: `token ${token}` 
+                } 
+            }).then(res => {
                 localStorage.setItem('//gitTokenTripee//', token);
                 window.location.href = '/home';
-            }
-        });
+            });
+        } catch (error) {
+            alert('Houve um erro, cheque o token e tente novamente')
+        }
     }
 
     return (
@@ -40,7 +43,7 @@ function Login() {
                     <input 
                         type="button" 
                         value="Login" 
-                        onClick={handleLogin} 
+                        onClick={e => handleLogin(e)} 
                     />
                 </form>
             </fieldset>

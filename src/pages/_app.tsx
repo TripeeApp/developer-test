@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
 import '../../public/css/global.css';
+import config from '../../config.json';
 
 import type { AppProps } from 'next/app';
 
@@ -10,7 +11,7 @@ function App({Component, pageProps}: AppProps) {
         <>
             <Head>
                 <script 
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQxI5CKPWrJt1g3Jv32v-m3DYL1G3heX0&libraries=places"
+                    src={`https://maps.googleapis.com/maps/api/js?key=${config.googleApiKey}&libraries=places`}
                     async
                 ></script>
             </Head>
