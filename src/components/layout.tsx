@@ -17,7 +17,7 @@ function Layout({children}) {
     return (
         <>
             <nav className={styles.navbar}>
-                <Link href='/'>Tripee</Link> 
+                <a>Tripee</a>
                 <a>
                     <img
                         src={avatar}

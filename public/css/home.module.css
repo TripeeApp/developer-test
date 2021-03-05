@@ -43,7 +43,6 @@
 .main .content ul li span {
     display: flex;
     align-items: center;
-
 }
 
 .main .content ul li a {
@@ -91,4 +90,18 @@
 
 .main .content .repositories ul li {
     grid-template-columns: minmax(15vw, 30vw) minmax(15vw, 45vw) minmax(15vw, 35vw);
+}
+
+@media screen and (max-width: 470px) {
+    .main .content ul li img {
+        height: 40px;
+    }
+    .main .content ul li span {
+        font-size: 13px;
+    }
+    .main .content ul li {
+        column-gap: 10px;
+        padding: 10px 0px;
+    }
+    
 }

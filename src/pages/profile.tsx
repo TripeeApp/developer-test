@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styles from '../../public/css/profile.module.css';
 import axios from '../services/gitApi';
 
 function Profile() {
     const [userInfo, setUserInfo] = useState({
-        name: 'Nathan Reis de Almeida',
+        name: '',
         email: '',
         twitter_username: '',
         location: '',
@@ -57,6 +58,7 @@ function Profile() {
     return (
         <>
             <section className={styles.main}> 
+                <Link href='/home'>Voltar</Link>
                 <form>
                     <label htmlFor='name'>Name</label> 
                     <input 

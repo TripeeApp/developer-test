@@ -1,12 +1,19 @@
 .main {
-    width: 60vw;
+    width: 70%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
 }
 
 .main form {
+    width: fit-content;
+    height: 40vh;
     display: grid;
     grid-template-columns: 10% auto 10% auto;
     row-gap: 30px;
     column-gap: 2em;
+    position: absolute;
+    align-self: center;
 }
 
 .main form input {
@@ -34,7 +41,7 @@
     border: 1px solid rgb(137, 136, 207);
     border-radius: 4px;
     height: 6vh;
-    width: 22vw;
+    width: 20vw;
 }
 
 .main form input[type='button'] {
@@ -53,4 +60,41 @@
 
 .main form select {
     width: 21vw;
+}
+
+.main a {
+    text-decoration: none;
+    color: rgb(137, 136, 207);
+    border: 1px solid rgb(137, 136, 207);
+    padding: 2px 5px;
+    border-radius: 4px;
+    transition: 0.25s;
+    height: 17px;
+    margin-left: -70vw;
+}
+
+.main a:hover {
+    color: white;
+    background-color: rgb(137, 136, 207);
+}
+
+@media screen and (max-width: 560px) {
+    .main {
+        margin-bottom: 100px;
+    }
+    .main form {
+        column-gap: 15px;
+    }
+    .main form label {
+        grid-column: span 2;
+        font-size: 13px;
+    }
+    .main form input {
+        grid-column: span 2;
+        font-size: 13px;
+    }
+    .main form textarea, .main form input {
+        width: 100%;
+    }
+
 }
