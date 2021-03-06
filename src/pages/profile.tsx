@@ -20,7 +20,7 @@ function Profile() {
 
     const attachAutocomplete = () => {
         const inputLocation = document.getElementById('location');
-        new google.maps.places.Autocomplete(inputLocation);
+        new google.maps.places.Autocomplete(inputLocation as HTMLInputElement);
     }
 
 
