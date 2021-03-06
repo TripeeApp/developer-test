@@ -32,17 +32,17 @@ function App({Component, pageProps}: AppProps) {
     
     return (
         <>
+            <Head>
+                <script 
+                    src={`https://maps.googleapis.com/maps/api/js?key=${config.googleApiKey}&libraries=places`}
+                    async
+                ></script>
+            </Head>
             {
                 !canRender ? (
                     <></>
                 ) : (
                     <>
-                        <Head>
-                            <script 
-                                src={`https://maps.googleapis.com/maps/api/js?key=${config.googleApiKey}&libraries=places`}
-                                async
-                            ></script>
-                        </Head>
                         <Layout>
                             <Component {...pageProps} />
                         </Layout>
