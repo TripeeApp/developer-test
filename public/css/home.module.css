@@ -1,5 +1,5 @@
 .main .opts {
-    padding: 10px 20px;
+    padding: 10px 0px;
 }
 
 .main .opts span {
@@ -12,11 +12,11 @@
 }
 
 .main .content {
-    width: 70vw;
+    width: 80vw;
 }
 
 .main .content div {
-    height: 70vh;
+    height: 75vh;
     transition: 0.5s;
 }
 
@@ -92,7 +92,14 @@
     grid-template-columns: minmax(15vw, 30vw) minmax(15vw, 45vw) minmax(15vw, 35vw);
 }
 
-@media screen and (max-width: 470px) {
+
+@media screen and (max-height: 680px) {
+    .main .content ul {
+        padding: 5px 0px;
+    }
+}
+
+@media screen and (max-width: 560px) {
     .main .content ul li img {
         height: 40px;
     }
@@ -103,5 +110,10 @@
         column-gap: 10px;
         padding: 10px 0px;
     }
-    
+    .main .content .repositories ul li {
+        grid-template-columns: minmax(10vw, 30vw) minmax(18vw, 45vw) minmax(13vw, 35vw);
+    }
+    .main .content .repositories ul li {
+        column-gap: 5px;
+    }
 }

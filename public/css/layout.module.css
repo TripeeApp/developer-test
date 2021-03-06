@@ -68,10 +68,10 @@
 
 @media screen and (max-height: 620px) {
     .navbar {
-        margin-bottom: 20%;
+        margin-bottom: 10%;
     }
     
     .footer {
-        margin-top: 20%;
+        margin-top: 10%;
     }
 }
