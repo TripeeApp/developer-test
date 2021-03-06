@@ -1,0 +1,77 @@
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.navbar, .footer {
+    max-height: 5vh;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.footer span {
+    margin-left: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    transition: 0.25s;
+    padding: 0px 10px;
+}
+
+.navbar a:last-of-type {
+    float: right;
+}
+
+.navbar a img {
+    width: 37px;
+    height: 34px;
+    margin-top: -8px;
+    margin-left: 60px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.navbar .userOpts {
+    padding: 0px 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    width: 80px;
+    height: 0px;
+    transition: 0.25s;
+    overflow: hidden;
+    position: absolute;
+}
+
+.navbar a img:hover + .userOpts, .navbar .userOpts:hover {
+    padding: 10px;
+    height: 40px;   
+}
+
+.navbar .userOpts span {
+    color: black;
+    font-size: 14px;
+    width: 100%;
+    float: right;
+    cursor: pointer;
+}
+
+.navbar .userOpts span:first-of-type {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-height: 620px) {
+    .navbar {
+        margin-bottom: 10%;
+    }
+    
+    .footer {
+        margin-top: 10%;
+    }
+}
