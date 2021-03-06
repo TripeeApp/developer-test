@@ -1,0 +1,119 @@
+.main .opts {
+    padding: 10px 0px;
+}
+
+.main .opts span {
+    cursor: pointer;
+    color: rgb(137, 136, 207);
+}
+
+.main .opts span:last-of-type {
+    margin-left: 30px;
+}
+
+.main .content {
+    width: 80vw;
+}
+
+.main .content div {
+    height: 75vh;
+    transition: 0.5s;
+}
+
+.main .content ul {
+    padding: 20px 0px;
+    list-style: none;
+}
+
+.main .content ul li {
+    border-bottom: 1px solid rgb(137, 136, 207);
+    padding: 10px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 10vw minmax(10vw, 40vw) auto;
+    column-gap: 20px;
+}
+
+.main .content ul li img {
+    height: 50px;
+    border-radius: 100px;
+}
+
+.main .content ul li span {
+    display: flex;
+    align-items: center;
+}
+
+.main .content ul li a {
+    text-decoration: none;
+    padding: 2px 5px;
+    border: 1px solid rgb(137, 136, 207);
+    color: rgb(137, 136, 207);
+    border-radius: 4px;
+    transition: 0.25s;
+}
+
+.main .content ul li a:hover {
+    color: white;
+    background-color: rgb(137, 136, 207);
+}
+
+.main .content .pageController {
+    margin: auto;
+    width: fit-content;
+}
+
+.main .content .pageController span:first-of-type {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.main .content .pageController span:last-of-type {
+    margin-left: 5px;
+    cursor: pointer
+}
+
+.main .content .pageController span {
+    color: rgb(137, 136, 207);
+    font-size: 14px;
+}
+
+.main .content .following {
+    overflow: hidden;
+}
+
+.main .content .repositories {
+    max-height: 0vh;
+    overflow: hidden;
+}
+
+.main .content .repositories ul li {
+    grid-template-columns: minmax(15vw, 30vw) minmax(15vw, 45vw) minmax(15vw, 35vw);
+}
+
+
+@media screen and (max-height: 680px) {
+    .main .content ul {
+        padding: 5px 0px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .main .content ul li img {
+        height: 40px;
+    }
+    .main .content ul li span {
+        font-size: 13px;
+    }
+    .main .content ul li {
+        column-gap: 10px;
+        padding: 10px 0px;
+    }
+    .main .content .repositories ul li {
+        grid-template-columns: minmax(10vw, 30vw) minmax(18vw, 45vw) minmax(13vw, 35vw);
+    }
+    .main .content .repositories ul li {
+        column-gap: 5px;
+    }
+}
